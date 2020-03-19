@@ -392,6 +392,10 @@ case "$cmd" in
 			verbose cp ../source/progs.dat .
 			verbose cp ../source/csprogs.dat .
 			verbose cp ../source/menu.dat .
+			# Include line numbers in qc errors
+			verbose cp ../source/progs.lno .
+			verbose cp ../source/csprogs.lno .
+			verbose cp ../source/menu.lno .
 			verbose rm -rf qcsrc
 			getversion .
 			case "$RELEASETYPE" in
@@ -399,10 +403,6 @@ case "$cmd" in
 					;;
 				*)
 					versionstr="$versionstr$RELEASETYPE"
-					# Include line numbers in autobuild/beta qc crashes
-					verbose cp ../source/progs.lno .
-					verbose cp ../source/csprogs.lno .
-					verbose cp ../source/menu.lno .
 					;;
 			esac
 			if [ $gv -lt 9900 ]; then
