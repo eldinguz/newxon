@@ -123,7 +123,7 @@ esac
 if [ -z "$SDL_AUDIODRIVER" ]; then
 	if ps -C pulseaudio >/dev/null; then
 		if ldd /usr/lib/libSDL.so 2>/dev/null | grep pulse >/dev/null; then
-			export SDL_AUDIODRIVER=pulse
+			export SDL_AUDIODRIVER=pulseaudio
 		fi
 	fi
 fi
