@@ -119,13 +119,4 @@ case "$xserver" in
 		;;
 esac
 
-# if pulseaudio
-if [ -z "$SDL_AUDIODRIVER" ]; then
-	if ps -C pulseaudio >/dev/null; then
-		if ldd /usr/lib/libSDL.so 2>/dev/null | grep pulse >/dev/null; then
-			export SDL_AUDIODRIVER=pulseaudio
-		fi
-	fi
-fi
-
 exec "$@"
