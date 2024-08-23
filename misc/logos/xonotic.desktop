@@ -6,8 +6,27 @@ Comment=Multiplayer, deathmatch oriented first person shooter
 Comment[de]=Deathmatch- und Mehrspieler-orientierter Ego-Shooter
 Comment[fr]=Jeu de tir à la première personne multijoueur
 Icon=xonotic
+
+# Note to packagers and/or .desktop file installers:
+#
+# Either fix the the absolute path
+# or
+# create a symlink from PATH binaries to the location of xonotic-linux-sdl.sh
+#
+# If the symlink is created then the PATH relying Exec can be used instead.
+# If you move/change Xonotic's binaries and file structure you're on your own.
+# If you do go on an adventure then "-basedir" "/path/to/Xonotic" arguments
+# or PWD being /path/to/Xonotic may help you.
+#
+# Installer sed snippet for using the PATH relying Exec:
+# sed \
+#     -e 's@^Exec=/@#Exec=/@' \
+#     -e 's@^#Exec=xonotic-sdl@Exec=xonotic-sdl@' \
+#     -i misc/logos/xonotic.desktop
+#
 Exec=/absolute/path/to/xonotic-linux-sdl.sh
 #Exec=xonotic-sdl
+
 Terminal=false
 PrefersNonDefaultGPU=true
 StartupNotify=false
